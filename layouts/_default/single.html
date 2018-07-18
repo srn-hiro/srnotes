@@ -8,8 +8,6 @@
         {{ if ne .Title "About" }}
         <div class="single-Header_Meta">
           {{ .Date.Format "2006.01.02" }}<br class="dispmobile-ib">
-          · {{ if lt 1 .WordCount }}{{ .WordCount }} words{{ else }}{{ .WordCount }} word{{ end }}
-          · {{ .ReadingTime }} minute read
           <div class="single-Header_MetaLower">
             <span class="single-Header_MetaCategory">
               {{ with .Params.categories }}
