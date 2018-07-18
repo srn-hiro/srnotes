@@ -234,9 +234,11 @@ h3 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .common-GlobalNav_Items {
@@ -246,6 +248,11 @@ h3 {
 }
 
 .common-GlobalNav_Items:first-child {
+  margin-left: 0;
+  margin-bottom: .8em;
+}
+
+.common-GlobalNav_Items:last-child {
   margin-left: 0;
 }
 
@@ -1137,8 +1144,18 @@ div.hljs-ln-line {
   .dispmobile-ib {
     display: none;
   }
+  .common-GlobalNav_List {
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
   .common-GlobalNav_Items {
     font-size: 1.36666rem;
+  }
+  .common-GlobalNav_Items:first-child {
+    margin-bottom: 0;
   }
   .common-GlobalNav_Link:hover {
     opacity: .8;
@@ -1612,6 +1629,13 @@ div.hljs-ln-line {
   }
   .tag-Pager_Link {
     font-size: 2rem;
+  }
+}
+
+@media screen and (min-width: 320px) {
+  .common-GlobalNav_Items:last-child {
+    margin-top: 0;
+    margin-left: 1.5em;
   }
 }
 
