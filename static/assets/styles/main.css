@@ -647,6 +647,11 @@ h3 {
   height: 100%;
 }
 
+.single-Entry ol li,
+.single-Entry ul li {
+  list-style-type: inherit;
+}
+
 /* for block of numbers */
 td.hljs-ln-numbers {
   -webkit-touch-callout: none;
