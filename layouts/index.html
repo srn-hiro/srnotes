@@ -2,7 +2,7 @@
   <body>
     {{ partial "gnav.html" . }}
     <div class="home-Header">
-      <a class="home-Header_SiteImage" href='#'>
+      <a class="home-Header_SiteImage" href='{{ $.Site.BaseURL }}page/about/'>
         <img id="" class="" src="{{ $.Site.BaseURL }}assets/images/common/avatar.jpg" />
       </a>
       <h1 class="home-Header_Title">{{ .Site.Title }}</h1>
