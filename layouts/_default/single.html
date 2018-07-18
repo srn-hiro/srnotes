@@ -1,0 +1,47 @@
+{{ partial "head.html" . }}
+  <body>
+    {{ partial "gnav.html" . }}
+  <div class="single-Content">
+    <div class="single-Content_Inner">
+      <div class="single-Header">
+        <h1 class="single-Header_Title">{{ .Title }}</h1>
+        {{ if ne .Title "About" }}
+        <div class="single-Header_Meta">
+          {{ .Date.Format "2006.01.02" }}<br class="dispmobile-ib">
+          · {{ if lt 1 .WordCount }}{{ .WordCount }} words{{ else }}{{ .WordCount }} word{{ end }}
+          · {{ .ReadingTime }} minute read
+          <div class="single-Header_MetaLower">
+            <span class="single-Header_MetaCategory">
+              {{ with .Params.categories }}
+              {{ if ge (len .) 1 }}
+                {{ range . }}
+                  <a class="single-Header_MetaLinks" href="{{ $.Site.BaseURL }}categories/{{ . | urlize }}">{{ . }}</a>
+                {{ end }}
+              {{ end }}
+              {{ end }}
+            </span>
+            <span class="single-Header_MetaTags">
+              {{ with .Params.tags }}
+              {{ if ge (len .) 1 }}
+                {{ range . }}
+                  <a class="single-Header_MetaLinks" href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">{{ . }}</a>
+                {{ end }}
+              {{ end }}
+              {{ end }}
+            </span>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+      <div class="single-Entry">
+        {{ .Content }}
+      </div>
+      {{ if ne .Title "About" }}
+        {{ if .Site.Params.enableDisqus }}
+          {{ partial "disqus.html" . }}
+        {{ end }}
+      {{ end }}
+    </div>
+  </div>
+  {{ partial "footer.html" . }}
+{{ partial "foot.html" . }}

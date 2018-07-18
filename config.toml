@@ -1,0 +1,31 @@
+baseURL = "https://sequentiallyrandomizednotes.com/"
+languageCode = "ja"
+title = "sequentially randomized notes"
+isCKJLanguage = true
+
+[taxonomies]
+  archive = "archives"
+  category = "categories"
+  tag = "tags"
+
+[params]
+	author = "hiroaki"
+	description = "Site Description"
+	bio = "author biography"
+
+	#twitter = "your_twitter_id"
+	#facebook = "your_facebook_id"
+
+  enableDisqus = true
+  disqusShortname = "sequentially-randomized-notes"
+
+  enableGoogleAnalytics = false
+
+  enableTwitterCard = false
+	# The url for twitter card image, default is avatar.png in static/images directory
+	twitterCardImage = ""
+
+[social]
+	twitter-square = "https://www.twitter.com/srn_hiroaki"
+	# facebook-square = "https://www.facebook.com/nodejh"
+	github-square = "https://www.github.com/srn-hiro"

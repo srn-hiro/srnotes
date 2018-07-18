@@ -1,0 +1,53 @@
+{{ partial "head.html" . }}
+  <body>
+    {{ partial "gnav.html" . }}
+    <div class="list-Header">
+      <h1 class="list-Header_Title">Archives</h1>
+    </div>
+    <div class="list-Content">
+      <div class="list-Content_Inner">
+        {{ range (.Paginator 5).Pages.ByDate.Reverse }}
+        <div class="list-Content_Group">
+          <h2 class="list-Content_Year">{{ .Title }}</h2>
+          <ul class="list-Content_PostList">
+            {{ range (where .Data.Pages.ByPublishDate.Reverse "Type" "post") }}
+              <li class="list-Content_PostItem">
+                <a class="list-Content_PostLink" href="{{ .Permalink }}">
+                  <span class="list-Content_PostDate">{{ .Date.Format "06.01.02" }}</span>
+                  <h3 class="list-Content_PostTitle">{{ .Title }}</h3>
+                  <div class="list-Content_PostMeta">
+                    {{ with .Params.categories }}
+                      {{ if ge (len .) 1 }}
+                        {{ range . }}<span class="list-Content_PostCategory">{{ . }}</span>{{ end }}
+                      {{ end }}
+                    {{ end }}
+                    {{ with .Params.tags }}
+                      {{ if ge (len .) 1 }}
+                        {{ range . }}<span class="list-Content_PostTag">{{ . }}</span>{{ end }}
+                      {{ end }}
+                    {{ end }}
+                  </div>
+                </a>
+              </li>
+            {{ end }}
+          </ul>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+    {{ if or (.Paginator.HasPrev) (.Paginator.HasNext) }}
+    <nav class="list-Pager">
+      <div class="list-Pager_Inner">
+        <ul class="list-Pager_List">
+          {{ if .Paginator.HasPrev }}
+          <li class="list-Pager_Item"><a class="list-Pager_Link" href="{{ .Paginator.Prev.URL }}">Prev</a></li>
+          {{ end }}
+          {{ if .Paginator.HasNext }}
+          <li class="list-Pager_Item"><a class="list-Pager_Link" href="{{ .Paginator.Next.URL }}">Next</a></li>
+          {{ end }}
+        </ul>
+      </div>
+    </nav>
+    {{ end }}
+    {{ partial "footer.html" . }}
+{{ partial "foot.html" . }}

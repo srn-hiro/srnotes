@@ -1,0 +1,7 @@
+  <ul class="common-GlobalFooter_SocialList">
+    {{ range $key, $val := .Site.Social }}
+      <li class="common-GlobalFooter_SocialItem">
+        <a class="symbol" href="{{ $val }}" target="_blank"><i class="fab fa-{{ $key }}"></i></a>
+      </li>
+    {{ end }}
+  </ul>

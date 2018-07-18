@@ -1,0 +1,18 @@
+{{ partial "head.html" . }}
+  <body class="tags">
+    {{ partial "gnav.html" . }}
+    <div class="tags-Header">
+      <h1 class="tags-Header_Title">{{ .Title }}</h1>
+    </div>
+    <div class="tags-Content">
+      <div class="tags-Content_Inner">
+        <ul class="tags-Content_PostList">
+          {{ $plural := .Data.Plural }}
+          {{ range $key, $value := .Data.Terms }}
+            <li class="tags-Content_PostItem"><a class="tags-Content_PostLink" href="/{{ $plural }}/{{ $key | urlize }}">{{ $key }}({{ len $value }})</a></li>
+          {{ end }}
+        </ul>
+      </div>
+    </div>
+  {{ partial "footer.html" . }}
+{{ partial "foot.html" . }}

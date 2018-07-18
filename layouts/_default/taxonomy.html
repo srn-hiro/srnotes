@@ -1,0 +1,44 @@
+{{ partial "head.html" . }}
+  <body>
+    {{ partial "gnav.html" . }}
+    <div class="tag-Header">
+      <h1 class="tag-Header_Title">{{ .Title }}</h1>
+    </div>
+    <div class="tag-Content">
+      <div class="tag-Content_Inner">
+        <ul class="tag-Content_PostList">
+          {{ $paginator := .Paginate (where .Data.Pages "Type" "post") 10 }}
+          {{ range $paginator.Pages }}
+            <li class="tag-Content_PostItem">
+              <a class="tag-Content_PostLink" href="{{ .Permalink }}">
+                <span class="tag-Content_PostDate">{{ .Date.Format "2006.01.02" }}</span>
+                <h2 class="tag-Content_PostTitle">{{ .Title }}</h2>
+                <div class="tag-Content_PostMeta">
+                  {{ with .Params.categories }}
+                    {{ if ge (len .) 1 }}
+                      {{ range . }}<span class="tag-Content_PostCategory">{{ . }}</span>{{ end }}
+                    {{ end }}
+                  {{ end }}
+                </div>
+              </a>
+            </li>
+          {{ end }}
+        </ul>
+      </div>
+    </div>
+    {{ if or (.Paginator.HasPrev) (.Paginator.HasNext) }}
+    <nav class="tag-Pager">
+      <div class="tag-Pager_Inner">
+        <ul class="tag-Pager_List">
+          {{ if .Paginator.HasPrev }}
+          <li class="tag-Pager_Item"><a class="tag-Pager_Link" href="{{ .Paginator.Prev.URL }}">Prev</a></li>
+          {{ end }}
+          {{ if .Paginator.HasNext }}
+          <li class="tag-Pager_Item"><a class="tag-Pager_Link" href="{{ .Paginator.Next.URL }}">Next</a></li>
+          {{ end }}
+        </ul>
+      </div>
+    </nav>
+    {{ end }}
+  {{ partial "footer.html" . }}
+{{ partial "foot.html" . }}
