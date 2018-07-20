@@ -1,0 +1,3 @@
+[submodule "public"]
+	path = public
+	url = git@github.com:srn-hiro/srn-hiro.github.io.git
