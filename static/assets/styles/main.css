@@ -628,14 +628,29 @@ h4 {
   text-align: center;
 }
 
+.single-Entry h2:nth-child(1) {
+  margin-top: 0;
+}
+
+.single-Entry h2:nth-child(1)::before {
+  display: none;
+}
+
 .single-Entry h3 {
   margin-top: 1.2em;
   margin-bottom: .4em;
   font-weight: bold;
 }
 
-.single-Entry > p {
+.single-Entry > p,
+.single-Entry > pre {
   margin-bottom: 1.2em;
+}
+
+.single-Entry > p code {
+  background-color: #efefef;
+  padding-right: .5em;
+  padding-left: .5em;
 }
 
 .single-Entry p > a {
