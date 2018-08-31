@@ -1,7 +1,7 @@
 ---
 title: "James Blake - Don't Miss It"
 date: 2018-07-21T23:42:05+09:00
-draft: false
+draft: true
 description: "James Blakeの新曲を聴いて、ふと思ってしまった事の話。"
 categories: ["Music"]
 tags: ["JamesBlake","TheBeatles"]
